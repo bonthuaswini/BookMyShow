@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bms-app
+  name: bms-deployment
   labels:
-    app: bms
+    project: bookmyshow
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: bms
+      project: bookmyshow
   template:
     metadata:
       labels:
-        app: bms
+        project: bookmyshow
     spec:
       containers:
-      - name: bms-container
-        image: kastrov/bms:latest  # Replace with your Docker image
-        ports:
-        - containerPort: 3000  # Replace with the port your app runs on
+        - name: bookmyshow-container
+          image: aswini/bms:latest
+          ports:
+            - containerPort: 3000
+
